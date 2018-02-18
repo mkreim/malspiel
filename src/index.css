@@ -1,15 +1,14 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
 
 .canvasRow:after {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 
-.canvasButton{
+.canvasButton {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -24,17 +23,15 @@ body {
   width: 34px;
 }
 
-.colorButton{
+.colorButton {
   background: #fff;
   border: 1px solid #999;
-  float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
   height: 34px;
   margin: 2px;
   padding: 0;
-  text-align: center;
   width: 34px;
 }
 
@@ -52,19 +49,12 @@ body {
   width: 190px;
 }
 
-/*.currColor {*/
-    /*width: 100%;*/
-	/*height: auto;*/
-    /*margin-bottom: 20px;*/
-/*}*/
-
-.currColor{
-	position: relative;
-	width: 100%;
-    margin-bottom: 20px;
+.currColor {
+  width: 100%;
+  margin-bottom: 20px;
 }
-.currColor:before{
-	content: "";
-	display: block;
-	padding-top: 100%;
+.currColor:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
 }
