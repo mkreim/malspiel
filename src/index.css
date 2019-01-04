@@ -58,3 +58,11 @@ body {
   display: block;
   padding-top: 100%;
 }
+
+footer {
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9em;
+}

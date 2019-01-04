@@ -51,21 +51,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <Canvas
-          currColor={this.state.currColor}
-          matrix={this.state.matrix}
-          onClick={this.paintCanvasButton}
-        />
-        <Toolbar
-          colors={this.state.colors}
-          currColor={this.state.currColor}
-          onClick={color => this.changeColor(color)}
-          loadState={this.loadState}
-          saveState={this.saveState}
-          lastSaved={this.state.lastSaved}
-        />
-      </div>
+      <React.Fragment>
+        <div className="app">
+          <Canvas
+            currColor={this.state.currColor}
+            matrix={this.state.matrix}
+            onClick={this.paintCanvasButton}
+          />
+          <Toolbar
+            colors={this.state.colors}
+            currColor={this.state.currColor}
+            onClick={color => this.changeColor(color)}
+            loadState={this.loadState}
+            saveState={this.saveState}
+            lastSaved={this.state.lastSaved}
+          />
+        </div>
+        <footer>
+          <a href="http://www.perfect-kreim.de/impressum.html">impressum</a>
+        </footer>
+      </React.Fragment>
     );
   }
 }
