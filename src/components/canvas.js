@@ -1,7 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const CanvasButton = ({ color, onClick }) => (
-  <button className="canvasButton pointer" style={{ background: color }} onClick={onClick} />
+  <button
+    className="canvasButton pointer"
+    style={{ background: color }}
+    onClick={onClick}
+  />
 );
 
 const Canvas = ({ matrix, onClick }) => (

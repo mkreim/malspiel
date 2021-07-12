@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 
 const LoadIcon = () => (
   <svg viewBox="0 0 24 24">
@@ -30,22 +30,35 @@ const ButtonBar = ({ colors, onClick }) => (
   </div>
 );
 
-const Toolbar = ({ currColor, colors, onClick, loadState, saveState, lastSaved }) => (
-  <div className="toolbar">
-    <div className="currColor" style={{ background: currColor }} />
-    <ButtonBar colors={colors} onClick={color => onClick(color)} />
-    <div className="flex-none db tc mt6">
-      <div onClick={loadState} className="pointer ph4">
-        <LoadIcon />
-      </div>
-      <div onClick={saveState} className="pointer ph4">
-        <SaveIcon />
-      </div>
-      <div className="mt2 gray tc">
-        {lastSaved ? lastSaved.toLocaleString() : 'noch nicht gespeichert!'}
+function SavePointsVisualization({ savePoints, loadState }) {
+  const [currentPosition, setCurrentPosition] = useState(0);
+
+  const load = useCallback(() => {
+    loadState(savePoints[currentPosition]);
+    const newPosition = (currentPosition + 1) % savePoints.length;
+    setCurrentPosition(newPosition);
+  }, [currentPosition, loadState]);
+
+  return (
+    <div onClick={load} className="pointer ph4" title="laden">
+      <LoadIcon />
+    </div>
+  );
+}
+
+function Toolbar({ currColor, colors, onClick, loadState, saveState, savePoints }) {
+  return (
+    <div className="toolbar">
+      <div className="currColor" style={{ background: currColor }} />
+      <ButtonBar colors={colors} onClick={(color) => onClick(color)} />
+      <div className="flex-none db tc mt1">
+        <SavePointsVisualization savePoints={savePoints} loadState={loadState} />
+        <div onClick={saveState} className="pointer ph4" title="speichern">
+          <SaveIcon />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default Toolbar;
